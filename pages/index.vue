@@ -1,12 +1,11 @@
 <template>
   <div class="container">
     <div>
-      <logo />
       <h1 class="title">
         NorthernScript
       </h1>
       <h2 class="subtitle">
-        Frosty Script Services From Norht
+        Frosty Script Services From North
       </h2>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">
@@ -21,6 +20,9 @@
         </a>
       </div>
     </div>
+    <li v-for="post of posts" :key="post.slug">
+      <NuxtLink :to="post.slug">{{ post.title }}</NuxtLink>
+    </li>
   </div>
 </template>
 
@@ -35,6 +37,13 @@ export default {
   },
   components: {
     Logo
+  },
+  async asyncData({ $content }) {
+    const posts = await $content("blog").fetch();
+
+    return {
+      posts,
+    };
   }
 }
 </script>

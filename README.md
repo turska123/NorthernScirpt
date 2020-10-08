@@ -1,6 +1,6 @@
 # NorthernScript
 
-> Frosty Script Services From Norht
+> Frosty Script Services From North
 
 ## Build Setup
 
